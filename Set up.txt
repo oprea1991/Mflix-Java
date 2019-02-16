@@ -1,0 +1,29 @@
+Download Java 8 or more:
+https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+Download  Mavn:
+https://maven.apache.org/download.cgi
+Binary zip archive
+
+Installing Apache Maven
+https://maven.apache.org/install.html
+
+Create New Atlas Cluster
+Default User and Password
+
+mongodb+srv://m220student:m220password@mflix-p2jnb.mongodb.net/test?retryWrites=true
+
+Restore data for course:
+mongorestore --drop --gzip --uri mongodb+srv://m220student:m220password@mflix-p2jnb.mongodb.net data
+
+Config file:
+ mflix/src/main/resources/ mflix/src/main/resources
+ 
+ Open this file and enter your Atlas SRV connection string as directed in the comment. This is the information the driver will use to connect. Make sure not to wrap your Atlas SRV connection between quotes:
+ spring.mongodb.uri=mongodb+srv://mongodb+srv://m220student:m220password@mflix-p2jnb.mongodb.net
+ 
+Running the Unit Tests
+To run the unit tests for this course, you will use JUnit. Each course lab contains a module of unit tests that you can call individually with a command like the following:
+
+cd mflix
+mvn -Dtest=<TestClass> test
