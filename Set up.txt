@@ -27,3 +27,6 @@ To run the unit tests for this course, you will use JUnit. Each course lab conta
 
 cd mflix
 mvn -Dtest=<TestClass> test
+
+Success message:
+2019-02-16 23:09:36.214  INFO 13168 --- [nio-5000-exec-6] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:302}] to mflix-shard-00-00-p2jnb.mongodb.net:27017
