@@ -1,0 +1,51 @@
+Chapter 1: Driver Setup
+
+Ticket: Projection
+Problem:
+
+User Story
+
+"As a user, I'd like to be able to search movies by country and see a list of movie titles. I should be able to specify a comma-separated list of countries to search multiple countries."
+
+Task
+
+Implement the getMoviesByCountry method in MovieDao.java to search movies by country and use projection to return the title field.
+
+MFlix Functionality
+
+Once you complete this ticket, the UI will allow movie searches by one or more countries.
+
+Testing and Running the Application
+
+Make sure to look at the tests in ProjectionTest.java to understand what is expected.
+
+If the application is already running, stop the application and run the unit tests for this ticket by executing the following command:
+
+mvn test -Dtest=ProjectionTest
+Or run the tests from your IDE.
+
+Once the unit tests are passing, run the application with:
+
+mvn spring-boot:run
+Or run the Application.java from your IDE.
+
+Now proceed to the status page to run the full suite of integration tests and get your validation code.
+
+To have the application use the changes that you implemented for this ticket, make sure to restart the application after you completed those changes. Also, only refresh the status page to see the new results of the tests, after the application has been restarted.
+
+After passing the relevant unit tests, what is the validation code for Projection?
+  public List<Document> getMoviesByCountry(String... country) {
+
+    Bson queryFilter =  new Document("countries", new Document("$in", Arrays.asList(country)));
+    Bson projection  =  new Document("title",1);//.append("_id",0);
+
+
+    //Document queryFilter = new Document ("year", new Document ("$in", Arrays.asList("Salma Hayek", "Johnny Depp") ));
+    // Arrays.asList("Salma Hayek", "Johnny Depp")
+    //TODO> Ticket: Projection - implement the query and projection required by the unit test
+    List<Document> movies = new ArrayList<>();
+
+    moviesCollection.find(queryFilter).projection(projection).into(movies);
+    System.out.println( movies);
+    return movies;
+  }
